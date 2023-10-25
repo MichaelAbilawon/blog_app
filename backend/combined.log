@@ -1,0 +1,65 @@
+[${timestamp} ${level}: ${message}
+[${timestamp} ${level}: ${message}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-20T15:38:48.980Z"}
+error: Error in creating a blog: Operation `blogs.insertOne()` buffering timed out after 10000ms {"timestamp":"2023-10-23T01:56:39.403Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T01:56:49.971Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:03:48.621Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:11:34.811Z"}
+info: Blog created by [object Object]: Faith of our Fathers {"timestamp":"2023-10-23T02:16:07.244Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:16:54.569Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:19:44.047Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:21:13.725Z"}
+error: Error in creating a blog: author is not defined {"timestamp":"2023-10-23T02:29:06.164Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "Sing The song of our Faith🙌🏾➕," } {"timestamp":"2023-10-23T02:30:23.891Z"}
+error: Error in creating a blog: author is not defined {"timestamp":"2023-10-23T02:30:36.889Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:31:44.107Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:34:23.572Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:47:49.568Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:49:00.879Z"}
+info: Blog created by undefined: Faith of our Fathers {"timestamp":"2023-10-23T02:51:45.791Z"}
+info: Blog created by mabilawon@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T02:56:30.238Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T03:06:07.267Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T04:13:07.063Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T04:13:29.130Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T04:42:06.191Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T04:43:39.411Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T04:44:45.083Z"}
+info: Blog published by mabilawon@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T04:47:06.040Z"}
+info: Blog published by Mich@gmail.com: blog2 {"timestamp":"2023-10-23T12:47:44.540Z"}
+info: Blog published by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T12:49:24.056Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T12:53:20.647Z"}
+info: Blog published by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T12:57:45.472Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T13:14:50.427Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T13:16:25.348Z"}
+info: Blog created by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T13:19:05.771Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T13:24:19.857Z"}
+error: Error in creating a blog: Blog validation failed: author: Cast to ObjectId failed for value "Mich@gmail.com" (type string) at path "author" because of "BSONError" {"timestamp":"2023-10-23T13:35:42.073Z"}
+error: Error in creating a blog: Blog validation failed: author: Cast to ObjectId failed for value "Mich@gmail.com" (type string) at path "author" because of "BSONError" {"timestamp":"2023-10-23T13:36:12.838Z"}
+error: Error in creating a blog: Blog validation failed: author: Cast to ObjectId failed for value "Mich@gmail.com" (type string) at path "author" because of "BSONError" {"timestamp":"2023-10-23T13:37:04.662Z"}
+info: Blog created by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T13:40:09.574Z"}
+info: Blog published by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T13:54:27.833Z"}
+info: Blog created by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T14:01:10.833Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: _id_ dup key: { _id: ObjectId('652eb6c9c26f048b5c9d5c24') } {"timestamp":"2023-10-23T14:03:13.932Z"}
+info: Blog created by Mich@gmail.com: Faith of our Fathers {"timestamp":"2023-10-23T14:06:48.565Z"}
+info: Blog created by Mich@gmail.com: King Jesus {"timestamp":"2023-10-23T14:10:26.090Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "He is Alive. Glory!🙌🏾➕," } {"timestamp":"2023-10-23T14:16:26.106Z"}
+info: Blog created by Mich@gmail.com: King Jesus {"timestamp":"2023-10-23T14:17:02.323Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T14:17:47.098Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T14:20:18.021Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T14:26:01.276Z"}
+error: Error in publishing a blog: Cannot read properties of undefined (reading 'toString') {"timestamp":"2023-10-23T14:32:32.456Z"}
+info: Blog created by mabilawon@gmail.com: King Jesus {"timestamp":"2023-10-23T16:42:10.824Z"}
+info: Blog published by mabilawon@gmail.com: King Jesus {"timestamp":"2023-10-23T16:45:39.044Z"}
+info: Blog created by mabilawon@gmail.com: Transforming Healthcare: The Role of Artificial Intelligence {"timestamp":"2023-10-24T12:25:23.995Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "In this blog, we explore the profound impact of Artificial Intelligence on the healthcare industry. Discover how AI is revolutionizing early diagnosis..." } {"timestamp":"2023-10-24T12:34:56.795Z"}
+info: Blog created by mabilawon@gmail.com: The Role of Artificial Intelligence in the Transformation of the Healthcare Industry. {"timestamp":"2023-10-24T12:36:28.230Z"}
+info: Blog created by mabilawon@gmail.com: The Role that Artificial Intelligence plays in the Transformation of the Healthcare Industry. {"timestamp":"2023-10-24T12:54:14.078Z"}
+error: Error in editing a blog: E11000 duplicate key error collection: 652d5f5056f49f02e8939695_test.blogs index: description_1 dup key: { description: "In this blog, we discuss the positive impact of Artificial Intelligence on the healthcare industry. Discover how AI is revolutionizing early diagnosis..." } {"timestamp":"2023-10-24T13:03:38.617Z"}
+info: Blog edited by mabilawon@gmail.com: The Role that Artificial Intelligence plays in the Transformation of the Healthcare Industry. {"timestamp":"2023-10-24T13:12:26.792Z"}
+error: Error in deleting a blog: blog.remove is not a function {"timestamp":"2023-10-24T13:14:01.134Z"}
+info: Blog deleted by mabilawon@gmail.com: The Role that Artificial Intelligence plays in the Transformation of the Healthcare Industry. {"timestamp":"2023-10-24T13:28:50.894Z"}
+error: Error in editing a blog: E11000 duplicate key error collection: 652d5f5056f49f02e8939695_test.blogs index: description_1 dup key: { description: "Rejoice for He lives! Glory!!!🙌🏾➕," } {"timestamp":"2023-10-24T13:44:44.001Z"}
+error: Error in editing a blog: E11000 duplicate key error collection: 652d5f5056f49f02e8939695_test.blogs index: description_1 dup key: { description: "Rejoice for He lives! Glory!!!🙌🏾➕," } {"timestamp":"2023-10-24T13:46:30.130Z"}
+info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King {"timestamp":"2023-10-24T13:53:00.967Z"}
+info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:27.647Z"}
+info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:52.325Z"}
