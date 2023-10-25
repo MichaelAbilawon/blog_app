@@ -168,7 +168,7 @@ blogRouter.get("/myblogs", verifyToken, async (req, res) => {
       Blog.countDocuments(query), //This is to count the total number of blogs
     ]);
     res.status(200).json({ total, blogs });
-  } catch (erorr) {
+  } catch (error) {
     res
       .status(500)
       .json({ message: "Error fetching blogs", error: error.message });

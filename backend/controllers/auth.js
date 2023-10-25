@@ -13,7 +13,6 @@ require("dotenv").config();
 const { log } = require("winston");
 const winston = require("winston/lib/winston/config");
 const router = express.Router();
-require("dotenv").config();
 
 //Define authentication routes
 
