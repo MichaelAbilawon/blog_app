@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/blog", blogRouter);
-app.use("/auth", routerconst);
+app.use("/auth", router);
 app.use("/user", userRouter);
 
-app.listen(5000, () => console.log("Server is connected succesfuly"));
+app.listen(8002, () => console.log("Server is connected succesfuly"));
