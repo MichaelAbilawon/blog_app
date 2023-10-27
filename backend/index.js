@@ -28,4 +28,4 @@ app.use("/blog", blogRouter);
 app.use("/auth", router);
 app.use("/user", userRouter);
 
-app.listen(8002, () => console.log("Server is connected succesfuly"));
+app.listen(6002, () => console.log("Server is connected succesfuly"));
