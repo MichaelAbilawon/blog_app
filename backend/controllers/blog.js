@@ -108,8 +108,13 @@ blogRouter.get("/get/:id", async (req, res) => {
   }
 });
 
+// Create a task (GET route to render the task creatiuon form)
+blogRouter.get("/create", verifyToken, (req, res) => {
+  res.render("createblog");
+});
+
 // Create a new blog (initially in draft state)
-blogRouter.post("/", verifyToken, async (req, res) => {
+blogRouter.post("/blogs", verifyToken, async (req, res) => {
   const { title, body, tags, state, description } = req.body;
   const author = req.user.id;
 
@@ -144,7 +149,7 @@ blogRouter.post("/", verifyToken, async (req, res) => {
     // Log the creation of the blog
     winston.info(`Blog created by ${req.user.email}: ${title}`);
 
-    return res.status(201).json(blog);
+    return res.render("createblog", { blog });
   } catch (error) {
     winston.error(`Error in creating a blog: ${error.message}`);
     return res.status(500).json({ error: "Server error" });

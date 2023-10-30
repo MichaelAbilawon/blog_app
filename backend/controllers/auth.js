@@ -110,7 +110,7 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout route
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   req.clearCookie("token");
   // Redirect the user to the login page
   res.redirect("/auth/login");
