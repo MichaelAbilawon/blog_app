@@ -1,6 +1,6 @@
 # Blog App
 
-The Blog App is a web application that allows users to create, read, update, and delete blog posts. It provides a simple and intuitive interface for managing blog content. This README provides an overview of the app, how to set it up, and basic usage instructions.
+BlogNest is a web application that allows users to create, read, update, and delete blog posts. It provides a simple and intuitive interface for managing blog content. This README provides an overview of the app, how to set it up.
 
 ## Features
 

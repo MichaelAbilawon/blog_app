@@ -63,3 +63,6 @@ error: Error in editing a blog: E11000 duplicate key error collection: 652d5f505
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King {"timestamp":"2023-10-24T13:53:00.967Z"}
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:27.647Z"}
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:52.325Z"}
+error: Error in login: existingUser is not defined {"timestamp":"2023-10-30T07:35:02.419Z"}
+error: Error in register: User validation failed: firstname: Path `firstname` is required., lastname: Path `lastname` is required. {"timestamp":"2023-10-30T07:36:21.367Z"}
+error: Error in login: existingUser is not defined {"timestamp":"2023-10-30T07:43:15.557Z"}

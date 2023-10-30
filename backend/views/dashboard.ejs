@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        background-color: #0078d4;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 10px;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      a {
+        text-decoration: none;
+        color: #0078d4;
+        font-weight: bold;
+      }
+
+      li:hover {
+        background-color: #0078d4;
+        color: white;
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Your Dashboard, <%= user.firstname %></h1>
+    <ul>
+      <li><a href="/blog/create">Create a blog</a></li>
+      <li><a href="/blog/all">View all blogs</a></li>
+      <li><a href="/blog/myblogs">View all my blogs</a></li>
+      <li><a href="/blog?status=pending">View all my drafts</a></li>
+      <li><a href="/blogs?status=completed">View all published blogs</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+  </body>
+</html>

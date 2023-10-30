@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Tasks</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        background-color: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        background-color: white;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      strong {
+        color: #007bff;
+      }
+
+      a {
+        display: block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 20px auto;
+        width: 200px;
+      }
+      #success-message {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+
+      a:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All Blogs</h1>
+    <ul>
+      <% blogs.forEach(blog => { %>
+      <li>
+        <strong>Title:</strong> <%= blog.title %><br />
+        <strong>Description:</strong> <%= blog.description %><br />
+        <strong>Author:</strong> <%= blog.author %><br />
+        <strong>State:</strong> <%= blog.state %><br />
+        <strong>Read Count:</strong> <%= blog.read_count %><br />
+        <strong>Read time:</strong> <%= blog.reading_time %><br />
+
+        <a href="/blog/view/<%= blog._id %>">View blog</a>
+      </li>
+      <% }); %>
+    </ul>
+    <!-- Pagination Links -->
+    <div class="pagination">
+      <% if (currentPage > 1) { %>
+      <a href="/blog/all?page=<%= currentPage - 1 %>">Previous</a>
+      <% } %> <% if (currentPage < totalPages) { %>
+      <a href="/blog/all?page=<%= currentPage + 1 %>">Next</a>
+      <% } %>
+    </div>
+    <a href="/auth/dashboard">Back to Dashboard</a>
+  </body>
+</html>

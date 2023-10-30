@@ -3,11 +3,190 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog App</title>
+    <title>BlogNest Homepage</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url(/waterfall.jpeg);        
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      header {
+        background: #50b3a2;
+        color: white;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #e8491d 3px solid;
+      }
+
+      header a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+
+      header li {
+        float: left;
+        display: inline;
+        padding: 0 20px 0 20px;
+      }
+
+      header #branding {
+        float: left;
+      }
+
+      header #branding h1 {
+        margin: 0;
+      }
+
+      header nav {
+        float: right;
+        margin-top: 10px;
+      }
+
+      header .highlight,
+      header .current a {
+        color: #e8491d;
+        font-weight: bold;
+      }
+
+      .featured-posts {
+        margin-top: 20px;
+        background: #ffffff;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+      }
+
+      .featured-post {
+        display: flex;
+        margin-bottom: 20px;
+      }
+
+      .featured-image {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .featured-image img {
+        width: 100%;
+      }
+
+      .featured-content {
+        flex: 2;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: 24px;
+        color: #333;
+      }
+
+      .read-more {
+        margin-top: 10px;
+      }
+
+      .topics {
+        margin-top: 20px;
+      }
+
+      .topic {
+        background: #e8491d;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .recent-posts {
+        margin-top: 20px;
+      }
+
+      .recent-post {
+        margin-bottom: 10px;
+      }
+
+      footer {
+        background: #333;
+        color: #ffffff;
+        padding: 20px 0;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to the Blog App!</h1>
-    <p>Here you can write, and read blogs.</p>
-    <p>Are you a writer? Pen your thoughts down Here</p>
+    <!-- <header>
+      <div class="container">
+        <div id="branding">
+          <h1>BlogNest</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/auth/register">Register</a></li>
+            <li><a href="/auth/login">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header> -->
+
+    <header style="background: linear-gradient(135deg, #FF6347, #FFD700); padding: 20px 0; min-height: 70px; border-bottom: 3px solid #FF4500;">
+      <div class="container">
+        <div id="branding">
+          <h1 style="color: #fff; font-size: 36px;">BlogNest</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/auth/register" style="color: #fff;">Register</a></li>
+            <li><a href="/auth/login" style="color: #fff;">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+
+    <div class="container">
+      <div class="featured-posts">
+        <div class="featured-post">
+          <div class="featured-content">
+            <h2>Featured Post 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a class="read-more" href="/post/1">Read More</a>
+          </div>
+        </div>
+          <div class="featured-content">
+            <h2>Featured Post 2</h2>
+            <p>Nulla venenatis odio eget dolor convallis, a tempor justo.</p>
+            <a class="read-more" href="/post/2">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="topics">
+        <span class="topic">Faith</span>
+        <span class="topic">Glory</span>
+        <span class="topic">Father</span>
+      </div>
+
+      <div class="recent-posts">
+        <h2>Recent Posts</h2>
+        <div class="recent-post">
+          <a href="/post/3">Recent Post 1</a>
+        </div>
+        <div class="recent-post">
+          <a href="/post/4">Recent Post 2</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>&copy; 2023 BlogNest</footer>
   </body>
 </html>

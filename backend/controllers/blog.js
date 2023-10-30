@@ -7,7 +7,7 @@ const winston = require("./logger");
 const blog = require("../models/blog");
 const { calculateReadingTime } = require("./time");
 
-blogRouter.get("/getALL", async (req, res) => {
+blogRouter.get("/all", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
     const limit = 20; // Fixed to 20 blogs per page
@@ -28,13 +28,11 @@ blogRouter.get("/getALL", async (req, res) => {
       throw new Error("No Data Found");
     }
 
-    return res.status(200).json({
-      success: true,
-      count: data.length,
-      totalPages,
+    res.render("allblogs", {
+      blogs: data,
+      totalBlogs: totalBlogs,
       currentPage: page,
-      message: "Data fetched successfully!",
-      data,
+      totalPages: totalPages,
     });
   } catch (err) {
     console.log(err);
@@ -42,6 +40,7 @@ blogRouter.get("/getALL", async (req, res) => {
   }
 });
 
+// Route to search
 blogRouter.get("/getfiltered", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
