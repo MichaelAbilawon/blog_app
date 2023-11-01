@@ -4,207 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlogNest Homepage</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-image: url(/waterfall.jpeg);
-        background-color: #f0f0f0;
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        width: 80%;
-        margin: auto;
-        overflow: hidden;
-      }
-
-      header {
-        background: #50b3a2;
-        color: white;
-        padding-top: 30px;
-        min-height: 70px;
-        border-bottom: #e8491d 3px solid;
-      }
-
-      header a {
-        color: #ffffff;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 16px;
-      }
-
-      header li {
-        float: left;
-        display: inline;
-        padding: 0 20px 0 20px;
-      }
-
-      header #branding {
-        float: left;
-      }
-
-      header #branding h1 {
-        margin: 0;
-      }
-
-      header nav {
-        float: right;
-        margin-top: 10px;
-      }
-
-      header .highlight,
-      header .current a {
-        color: #e8491d;
-        font-weight: bold;
-      }
-
-      .search-bar {
-        margin-top: 20px;
-        text-align: center;
-      }
-
-      .search-bar input[type="text"] {
-        width: 60%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-
-      .search-bar button {
-        background-color: #e8491d;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      .search-bar button:hover {
-        background-color: #c93b13;
-      }
-
-      .featured-posts {
-        margin-top: 20px;
-        background: #ffffff;
-        padding: 20px;
-        border: 1px solid #e0e0e0;
-      }
-
-      .featured-post {
-        display: flex;
-        margin-bottom: 20px;
-      }
-
-      .featured-image {
-        flex: 1;
-        padding: 10px;
-      }
-
-      .featured-image img {
-        width: 100%;
-      }
-
-      .featured-content {
-        flex: 2;
-        padding: 10px;
-      }
-
-      h2 {
-        font-size: 24px;
-        color: #333;
-      }
-
-      .read-more {
-        margin-top: 10px;
-      }
-
-      .topics {
-        margin-top: 20px;
-      }
-
-      .topic {
-        background: #e8491d;
-        color: #ffffff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        margin-right: 10px;
-        cursor: pointer;
-      }
-
-      .recent-posts {
-        margin-top: 20px;
-      }
-
-      .recent-post {
-        margin-bottom: 10px;
-      }
-
-      footer {
-        background: #254f60;
-        color: #ffffff;
-        padding: 20px 0;
-        text-align: center;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <header
+      class="bg-gradient d-flex justify-content-between align-items-center"
       style="
-        background: linear-gradient(135deg, #ff6347, #ffd700);
         padding: 20px 0;
         min-height: 70px;
         border-bottom: 3px solid #ff4500;
       "
     >
-      <div class="container">
-        <div id="branding">
-          <h1 style="color: #fff; font-size: 36px">BlogNest</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="/auth/register" style="color: #fff">Register</a></li>
-            <li><a href="/auth/login" style="color: #fff">Login</a></li>
-          </ul>
-        </nav>
+      <div id="branding">
+        <h1 class="text-white" style="font-size: 36px">BlogNest</h1>
+      </div>
+      <div class="d-flex">
+        <a href="/auth/login" class="btn btn-primary text-white mr-2">Login</a>
+        <a href="/auth/register" class="btn btn-primary text-white">Register</a>
       </div>
     </header>
 
     <div class="container">
-      <div class="search-bar">
-        <input type="text" placeholder="Search for a blog" />
-        <button>Search</button>
+      <div class="search-bar mt-4 text-center">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search for a blog"
+        />
+        <button class="btn btn-primary mt-2">Search</button>
       </div>
 
-      <div class="featured-posts">
-        <div class="featured-post">
-          <div class="featured-content">
-            <h2>Featured Post 1</h2>
+      <div class="featured-posts mt-4 bg-white p-4 border rounded">
+        <div class="featured-post d-flex mb-4">
+          <div class="featured-content flex-2">
+            <h2 class="h4">Featured Post 1</h2>
             <p>Faith of Our Fathers.</p>
             <a class="read-more" href="/post/1">Read More</a>
           </div>
         </div>
-        <div class="featured-content">
-          <h2>Featured Post 2</h2>
-          <p>Nulla venenatis odio eget dolor convallis, a tempor justo.</p>
-          <a class="read-more" href="/post/2">Read More</a>
+        <div class="featured-post d-flex mb-4">
+          <div class="featured-content flex-2">
+            <h2 class="h4">Featured Post 2</h2>
+            <p>Heavenly Things.</p>
+            <a class="read-more" href="/post/2">Read More</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="topics">
-      <span class="topic">Faith</span>
-      <span class="topic">Glory</span>
-      <span class="topic">Father</span>
+    <div class="topics mt-4">
+      <span class="topic badge badge-primary">Faith</span>
+      <span class="topic badge badge-primary">Glory</span>
+      <span class="topic badge badge-primary">Father</span>
     </div>
 
-    <div class="recent-posts">
-      <h2>Recent Posts</h2>
+    <div class="recent-posts mt-4">
+      <h2 class="h4">Recent Posts</h2>
       <div class="recent-post">
         <a href="/blog/heavenly-things">Heavenly Things</a>
       </div>
     </div>
 
-    <footer>&copy; 2023 BlogNest</footer>
+    <footer class="bg-primary text-white py-4 text-center">
+      &copy; 2023 BlogNest
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>

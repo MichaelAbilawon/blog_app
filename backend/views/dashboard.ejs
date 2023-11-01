@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -77,14 +81,50 @@
       </div>
     </header>
 
-    <h1>Welcome to Your Dashboard, <%= user.email %></h1>
-    <ul>
-      <li><a href="/blog/create">Create a blog</a></li>
-      <li><a href="/blog/all">View all blogs</a></li>
-      <li><a href="/blog/myblogs">View all my blogs</a></li>
-      <li><a href="/blog?status=pending">View all my drafts</a></li>
-      <li><a href="/blogs?status=completed">View all my published blogs</a></li>
-      <li><a href="/auth/logout">Logout</a></li>
-    </ul>
+    <h1 class="text-center mt-4">
+      Welcome to Your Dashboard, <%= user.email %>
+    </h1>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <ul>
+            <li>
+              <a href="/blog/create" class="btn btn-primary btn-block"
+                >Create a Blog</a
+              >
+            </li>
+            <li>
+              <a href="/blog/all" class="btn btn-primary btn-block"
+                >View All Blogs</a
+              >
+            </li>
+            <li>
+              <a href="/blog/myblogs" class="btn btn-primary btn-block"
+                >View Your Blogs</a
+              >
+            </li>
+            <li>
+              <a href="/blog?status=pending" class="btn btn-primary btn-block"
+                >View Drafts</a
+              >
+            </li>
+            <li>
+              <a
+                href="/blogs?status=completed"
+                class="btn btn-primary btn-block"
+                >View Published Blogs</a
+              >
+            </li>
+            <li>
+              <a href="/auth/logout" class="btn btn-danger btn-block">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>

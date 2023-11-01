@@ -4,96 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Blog</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        text-align: center;
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 24px;
-        color: #333;
-      }
-
-      form {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        padding: 20px;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      label {
-        font-weight: bold;
-        display: block;
-        margin-top: 10px;
-      }
-
-      input[type="text"],
-      textarea,
-      select {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-
-      header #branding {
-        float: left;
-      }
-
-      header #branding h1 {
-        margin: 0;
-      }
-
-      select {
-        height: 40px;
-      }
-
-      .container {
-        width: 80%;
-        margin: auto;
-        overflow: hidden;
-      }
-
-      p {
-        margin: 10px 0;
-        text-align: left;
-      }
-
-      button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-
-      a {
-        text-decoration: none;
-        color: #007bff;
-        display: block;
-        margin-top: 20px;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <header
+      class="bg-gradient"
       style="
-        background: linear-gradient(135deg, #ff6347, #ffd700);
         padding: 20px 0;
         min-height: 70px;
         border-bottom: 3px solid #ff4500;
@@ -101,43 +20,75 @@
     >
       <div class="container">
         <div id="branding">
-          <h1 style="color: #fff; font-size: 36px">BlogNest</h1>
+          <h1 class="text-white" style="font-size: 36px">BlogNest</h1>
         </div>
       </div>
     </header>
 
-    <h1>Create a New Blog</h1>
-    <form method="POST" action="/blog/blogs">
-      <!-- Title Input -->
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" required />
+    <div class="container mt-4">
+      <h1 class="text-center" style="font-size: 24px; color: #333">
+        Create a New Blog
+      </h1>
+      <form
+        method="POST"
+        action="/blog/blogs"
+        class="bg-white border rounded p-3"
+      >
+        <!-- Title Input -->
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            required
+          />
+        </div>
 
-      <!-- Description Input -->
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" rows="4"></textarea>
+        <!-- Description Input -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            rows="4"
+          ></textarea>
+        </div>
 
-      <!-- Author's details -->
-      <p><strong>Author:</strong> <%= user.lastname %></p>
-      <p><strong>Email:</strong> <%= user.email %></p>
+        <!-- State Input -->
+        <div class="form-group">
+          <label for="state">State:</label>
+          <select id="state" name="state" class="form-control" required>
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
 
-      <!-- State Input -->
-      <label for="state">State:</label>
-      <select id="state" name="state" required>
-        <option value="draft">Draft</option>
-        <option value="published">Published</option>
-      </select>
+        <!-- Tags Input (Assuming tags are entered as a comma-separated list) -->
+        <div class="form-group">
+          <label for="tags">Tags:</label>
+          <input type="text" id="tags" name="tags" class="form-control" />
+        </div>
 
-      <!-- Tags Input (Assuming tags are entered as a comma-separated list) -->
-      <label for="tags">Tags:</label>
-      <input type="text" id="tags" name="tags" />
+        <!-- Blog Body Input -->
+        <div class="form-group">
+          <label for="body">Blog Content:</label>
+          <textarea
+            id="body"
+            name="body"
+            class="form-control"
+            rows="10"
+            required
+          ></textarea>
+        </div>
 
-      <!-- Blog Body Input -->
-      <label for="body">Blog Content:</label>
-      <textarea id="body" name="body" rows="10" required></textarea>
-
-      <!-- Submit Button -->
-      <button type="submit">Create Blog</button>
-    </form>
-    <a href="/auth/dashboard">Back to Dashboard</a>
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">
+          Create Blog
+        </button>
+      </form>
+    </div>
   </body>
 </html>
