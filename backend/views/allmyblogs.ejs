@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Blogs</title>
+    <title>My Blogs</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -61,13 +61,15 @@
     </style>
   </head>
   <body>
-    <h1>All Blogs</h1>
+    <h1>These are Your Blogs</h1>
+    <% if (isBlogDeleted) { %>
+    <div id="success-message" style="display: none"></div>
+    <% } %>
     <ul>
       <% blogs.forEach(blog => { %>
       <li>
         <strong>Title:</strong> <%= blog.title %><br />
         <strong>Description:</strong> <%= blog.description %><br />
-        <strong>Author:</strong> <%= blog.author %><br />
         <strong>State:</strong> <%= blog.state %><br />
         <strong>Read Count:</strong> <%= blog.read_count %><br />
         <strong>Read time:</strong> <%= blog.reading_time %><br />
@@ -76,14 +78,19 @@
       </li>
       <% }); %>
     </ul>
-    <!-- Pagination Links -->
-    <div class="pagination">
-      <% if (currentPage > 1) { %>
-      <a href="/blog/all?page=<%= currentPage - 1 %>">Previous</a>
-      <% } %> <% if (currentPage < totalPages) { %>
-      <a href="/blog/all?page=<%= currentPage + 1 %>">Next</a>
-      <% } %>
-    </div>
-    <a href="/auth/dashboard">Back to Dashboard</a>
+    <script>
+      // Check if the query parameter indicates a deleted task
+      const urlParams = new URLSearchParams(window.location.search);
+      const isBlogDeleted = urlParams.get("taskDeleted");
+
+      // Get the success message div
+      const successMessage = document.getElementById("success-message");
+
+      // If a task was deleted, show the success message
+      if (isBlogDeleted === "true") {
+        successMessage.innerText = "Task successfully deleted";
+        successMessage.style.display = "block";
+      }
+    </script>
   </body>
 </html>

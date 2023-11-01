@@ -6,6 +6,7 @@ const verifyToken = require("../middlewares/verifyToken");
 const winston = require("./logger");
 const blog = require("../models/blog");
 const { calculateReadingTime } = require("./time");
+const generateSlug = require("./slug");
 
 blogRouter.get("/all", async (req, res) => {
   try {
@@ -37,6 +38,28 @@ blogRouter.get("/all", async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).send(`Error ${err}`);
+  }
+});
+
+// Route for accessing individual posts by slugs
+blogRouter.get("/blog/:slug", async (req, res) => {
+  try {
+    // Retrieve the slug from the URL
+    const slug = req.params.slug;
+
+    // Fetch the blog post by slug from the database
+    const theblog = await blog
+      .findOne({ slug })
+      .populate("author", "-password");
+    console.log(theblog);
+    if (!theblog) {
+      throw new Error("Blog not found");
+    }
+
+    res.render("singleblog", { theblog });
+  } catch (error) {
+    // Handle errors, e.g., blog not found
+    res.status(404).send("Blog not found");
   }
 });
 
@@ -102,17 +125,18 @@ blogRouter.get("/get/:id", async (req, res) => {
     blog.read_count += 1;
     await blog.save();
 
-    res.status(200).json(blog);
+    res.render("singleblog", { blog });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// Create a task (GET route to render the task creatiuon form)
+//Route to create a blog
 blogRouter.get("/create", verifyToken, (req, res) => {
-  res.render("createblog");
+  res.render("createblog", {
+    user: req.user,
+  });
 });
-
 // Create a new blog (initially in draft state)
 blogRouter.post("/blogs", verifyToken, async (req, res) => {
   const { title, body, tags, state, description } = req.body;
@@ -135,11 +159,12 @@ blogRouter.post("/blogs", verifyToken, async (req, res) => {
     const newBlog = new Blog({
       title,
       description,
+      slug: generateSlug(title),
       state: "draft", // Initially in draft state
       body,
       tags: tags || [],
       author,
-      reading_time: readingTime, //Reading time
+      reading_time: `${readingTime}mins`, //Reading time
       read_count: 0, // Initialize read_count
     });
 
@@ -149,7 +174,9 @@ blogRouter.post("/blogs", verifyToken, async (req, res) => {
     // Log the creation of the blog
     winston.info(`Blog created by ${req.user.email}: ${title}`);
 
-    return res.render("createblog", { blog });
+    return res.render("blogcreated", {
+      blog,
+    });
   } catch (error) {
     winston.error(`Error in creating a blog: ${error.message}`);
     return res.status(500).json({ error: "Server error" });
@@ -158,6 +185,7 @@ blogRouter.post("/blogs", verifyToken, async (req, res) => {
 
 // Get a list of the user's blogs
 blogRouter.get("/myblogs", verifyToken, async (req, res) => {
+  const isBlogDeleted = req.query.deleted === true;
   const userId = req.user.id; //this is to extract the user ID from the token
   const { page = 1, perPage = 20, state } = req.query;
 
@@ -171,7 +199,7 @@ blogRouter.get("/myblogs", verifyToken, async (req, res) => {
         .limit(perPage),
       Blog.countDocuments(query), //This is to count the total number of blogs
     ]);
-    res.status(200).json({ total, blogs });
+    res.render("allmyblogs", { blogs: blogs, isBlogDeleted }, total);
   } catch (error) {
     res
       .status(500)

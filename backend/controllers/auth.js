@@ -24,12 +24,10 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/dashboard", verifyToken, async (req, res) => {
-  // Fetch the user's tasks
+  // Fetch the user's blogs
   try {
-    console.log("User:", req.user);
     const userId = req.user.id;
     const blogs = await Blog.find({ author: userId });
-    console.log("Blogs:", blogs);
     res.render("dashboard", { blogs: blogs, user: req.user });
   } catch (error) {
     // Handle any potential errors, e.g., database connection issues
@@ -38,7 +36,7 @@ router.get("/dashboard", verifyToken, async (req, res) => {
   }
 });
 
-//Define authentication routes
+//Registration routes
 
 router.post("/register", async (req, res) => {
   //Handles user registeration
@@ -48,6 +46,10 @@ router.post("/register", async (req, res) => {
     if (isExisting) {
       return res.status(400).json({ error: "Email has already been used." });
     }
+    if (!req.body.password) {
+      return res.status(400).json({ error: "Password is required" });
+    }
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = new User({
       firstname: req.body.firstname,
@@ -65,7 +67,7 @@ router.post("/register", async (req, res) => {
       }
     );
     // res.status(201).json({ message: "New user created" });
-    res.render("dashboard", { user: newUser });
+    res.render("successfulRegistration", { user: newUser });
   } catch (error) {
     winston.error(`Error in register: ${error.message}`);
     res.status(500).json({ error: "Registration failed" });
@@ -111,7 +113,7 @@ router.post("/login", async (req, res) => {
 
 // Logout route
 router.get("/logout", (req, res) => {
-  req.clearCookie("token");
+  res.clearCookie("token");
   // Redirect the user to the login page
   res.redirect("/auth/login");
 });

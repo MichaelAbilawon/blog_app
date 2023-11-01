@@ -29,3 +29,9 @@ error: Error in editing a blog: E11000 duplicate key error collection: 652d5f505
 error: Error in login: existingUser is not defined {"timestamp":"2023-10-30T07:35:02.419Z"}
 error: Error in register: User validation failed: firstname: Path `firstname` is required., lastname: Path `lastname` is required. {"timestamp":"2023-10-30T07:36:21.367Z"}
 error: Error in login: existingUser is not defined {"timestamp":"2023-10-30T07:43:15.557Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "Let's talk about heavenly things." } {"timestamp":"2023-10-30T18:15:21.279Z"}
+error: Error in creating a blog: Blog validation failed: slug: Path `slug` is required. {"timestamp":"2023-10-31T15:47:51.388Z"}
+error: Error in register: data and salt arguments required {"timestamp":"2023-10-31T17:58:08.154Z"}
+error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:45.133Z"}
+error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:55.073Z"}
+error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:55.330Z"}

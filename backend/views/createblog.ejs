@@ -4,11 +4,110 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Blog</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+        color: #333;
+      }
+
+      form {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+      }
+
+      input[type="text"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      header #branding {
+        float: left;
+      }
+
+      header #branding h1 {
+        margin: 0;
+      }
+
+      select {
+        height: 40px;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      p {
+        margin: 10px 0;
+        text-align: left;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        text-decoration: none;
+        color: #007bff;
+        display: block;
+        margin-top: 20px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <h1>Create a New Blog</h1>
+    <header
+      style="
+        background: linear-gradient(135deg, #ff6347, #ffd700);
+        padding: 20px 0;
+        min-height: 70px;
+        border-bottom: 3px solid #ff4500;
+      "
+    >
+      <div class="container">
+        <div id="branding">
+          <h1 style="color: #fff; font-size: 36px">BlogNest</h1>
+        </div>
+      </div>
+    </header>
 
-    <form method="POST" action="/blogs/blogs">
+    <h1>Create a New Blog</h1>
+    <form method="POST" action="/blog/blogs">
       <!-- Title Input -->
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" required />
@@ -17,11 +116,9 @@
       <label for="description">Description:</label>
       <textarea id="description" name="description" rows="4"></textarea>
 
-      <% if (req.user) { %>
-      <p><strong>Author:</strong> <%= req.user.name %></p>
-      <p><strong>Email:</strong> <%= req.user.email %></p>
-      <!-- You can display other user details as needed -->
-      <% } %>
+      <!-- Author's details -->
+      <p><strong>Author:</strong> <%= user.lastname %></p>
+      <p><strong>Email:</strong> <%= user.email %></p>
 
       <!-- State Input -->
       <label for="state">State:</label>
@@ -41,7 +138,6 @@
       <!-- Submit Button -->
       <button type="submit">Create Blog</button>
     </form>
-
-    <a href="/blogs">Back to Blogs</a>
+    <a href="/auth/dashboard">Back to Dashboard</a>
   </body>
 </html>

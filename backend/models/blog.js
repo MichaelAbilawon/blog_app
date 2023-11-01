@@ -13,6 +13,7 @@ const BlogSchema = new mongoose.Schema(
       default: "draft",
       required: true,
     },
+    slug: { type: String, required: true, unique: true },
     read_count: { type: Number, default: 0 },
     reading_time: Number,
     tags: [String],

@@ -20,6 +20,20 @@
         margin: 0;
       }
 
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      header #branding {
+        float: left;
+      }
+
+      header #branding h1 {
+        margin: 0;
+      }
+
       ul {
         list-style-type: none;
         padding: 0;
@@ -36,7 +50,7 @@
 
       a {
         text-decoration: none;
-        color: #0078d4;
+        color: #000606;
         font-weight: bold;
       }
 
@@ -48,13 +62,28 @@
     </style>
   </head>
   <body>
-    <h1>Welcome to Your Dashboard, <%= user.firstname %></h1>
+    <header
+      style="
+        background: linear-gradient(135deg, #ff6347, #ffd700);
+        padding: 20px 0;
+        min-height: 70px;
+        border-bottom: 3px solid #ff4500;
+      "
+    >
+      <div class="container">
+        <div id="branding">
+          <h1 style="color: #fff; font-size: 36px">BlogNest</h1>
+        </div>
+      </div>
+    </header>
+
+    <h1>Welcome to Your Dashboard, <%= user.email %></h1>
     <ul>
       <li><a href="/blog/create">Create a blog</a></li>
       <li><a href="/blog/all">View all blogs</a></li>
       <li><a href="/blog/myblogs">View all my blogs</a></li>
       <li><a href="/blog?status=pending">View all my drafts</a></li>
-      <li><a href="/blogs?status=completed">View all published blogs</a></li>
+      <li><a href="/blogs?status=completed">View all my published blogs</a></li>
       <li><a href="/auth/logout">Logout</a></li>
     </ul>
   </body>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Created</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      header #branding {
+        float: left;
+      }
+
+      header #branding h1 {
+        margin: 0;
+      }
+
+      li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        margin-top: 20px;
+        display: inline-block;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      a:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      style="
+        background: linear-gradient(135deg, #ff6347, #ffd700);
+        padding: 20px 0;
+        min-height: 70px;
+        border-bottom: 3px solid #ff4500;
+      "
+    >
+      <div class="container">
+        <div id="branding">
+          <h1 style="color: #fff; font-size: 36px">BlogNest</h1>
+        </div>
+      </div>
+    </header>
+
+    <h1>Blog Created Successfully</h1>
+    <p>Your blog has been created:</p>
+    <ul>
+      <li><strong>Name:</strong> <%= blog.title%></li>
+      <li><strong>Description:</strong> <%= blog.description %></li>
+      <li><strong>Status:</strong> <%= blog.state %></li>
+    </ul>
+    <a href="/auth/dashboard">Back to Dashboard</a>
+  </body>
+</html>

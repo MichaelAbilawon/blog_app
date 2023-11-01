@@ -38,3 +38,5 @@ app.get("/", (req, res) => {
 
 // Server Listening
 app.listen(6002, () => console.log("Server is connected succesfuly"));
+
+module.exports = app;
