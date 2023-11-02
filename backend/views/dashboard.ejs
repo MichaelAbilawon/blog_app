@@ -67,17 +67,19 @@
   </head>
   <body>
     <header
+      class="bg-primary d-flex justify-content-between align-items-center"
       style="
-        background: linear-gradient(135deg, #ff6347, #ffd700);
         padding: 20px 0;
         min-height: 70px;
         border-bottom: 3px solid #ff4500;
       "
     >
-      <div class="container">
-        <div id="branding">
-          <h1 style="color: #fff; font-size: 36px">BlogNest</h1>
-        </div>
+      <div id="branding">
+        <h1 class="text-white" style="font-size: 36px">BlogNest</h1>
+      </div>
+      <div class="d-flex">
+        <a href="/auth/login" class="btn btn-primary text-white mr-2">Login</a>
+        <a href="/auth/register" class="btn btn-primary text-white">Register</a>
       </div>
     </header>
 
