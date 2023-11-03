@@ -1,55 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlogNest Homepage</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-  </head>
-  <body style="background-image: url('/free-website-background-14.jpg')">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://source.unsplash.com/1920x1080/?nature");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: white;
+      }
+
+      .container {
+        margin-top: 30px;
+      }
+
+      .search-bar {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      .search-bar input {
+        width: 70%;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        color: #333;
+      }
+
+      .search-bar button {
+        width: 28%;
+        border: none;
+        border-radius: 5px;
+        padding: 8px;
+        background: #007bff;
+        color: white;
+        font-weight: bold;
+      }
+
+      .featured-posts {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .featured-post {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .featured-post h2 {
+        font-size: 24px;
+      }
+
+      .topics .badge {
+        margin-right: 10px;
+        background: #007bff;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+
+      .recent-posts .h4 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .recent-post a {
+        font-size: 18px;
+        color: #007bff;
+      }
+
+      footer {
+        background: #007bff;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        border-top: 3px solid #ff4500;
+      }
+    </style>
+</head>
+<body>
     <header
       class="bg-primary d-flex justify-content-between align-items-center"
-      style="
-        padding: 20px 0;
-        min-height: 70px;
-        border-bottom: 3px solid #ff4500;
-      "
+      style="padding: 20px 0; min-height: 70px; border-bottom: 3px solid #ff4500"
     >
       <div id="branding">
         <h1 class="text-white" style="font-size: 36px">BlogNest</h1>
       </div>
       <div class="d-flex">
+        <a href="/blog/all" class="btn btn-primary text-white mr-2">All Blogs</a>
         <a href="/auth/login" class="btn btn-primary text-white mr-2">Login</a>
         <a href="/auth/register" class="btn btn-primary text-white">Register</a>
       </div>
     </header>
 
     <div class="container">
-      <div class="search-bar mt-4 text-center">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search for a blog"
-        />
-        <button class="btn btn-primary mt-2">Search</button>
+      <div class="search-bar">
+        <input type="text" class="form-control" placeholder="Search for a blog" />
+        <button class="btn btn-primary">Search</button>
       </div>
 
-      <div class="featured-posts mt-4 bg-white p-4 border rounded">
-        <div class="featured-post d-flex mb-4">
+      <div class="featured-posts">
+        <div class="featured-post">
           <div class="featured-content flex-2">
             <h2 class="h4">Featured Post 1</h2>
             <p>Faith of Our Fathers.</p>
-            <a class="read-more" href="/post/1">Read More</a>
+            <!-- <a class="read-more" href="/post/1">Read More</a> -->
           </div>
         </div>
-        <div class="featured-post d-flex mb-4">
+        <div class="featured-post">
           <div class="featured-content flex-2">
-            <h2 class="h4">Featured Post 2</h2>
+            <h2 class="h4">Featured Post 2
             <p>Heavenly Things.</p>
-            <a class="read-more" href="/post/2">Read More</a>
+            <!-- <a class="read-more" href="/post/2">Read More</a> -->
           </div>
         </div>
       </div>
@@ -64,15 +143,8 @@
     <div class="recent-posts mt-4">
       <h2 class="h4">Recent Posts</h2>
       <div class="recent-post">
-        <a href="/blog/heavenly-things">Heavenly Things</a>
+        <a href="#">Heaven </a>
       </div>
     </div>
-
-    <footer class="bg-primary text-white py-4 text-center">
-      &copy; 2023 BlogNest
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
