@@ -26,3 +26,4 @@ error: Error in editing a blog: E11000 duplicate key error collection: 652d5f505
 error: Error in deleting a blog: blog.remove is not a function {"timestamp":"2023-10-24T13:14:01.134Z"}
 error: Error in editing a blog: E11000 duplicate key error collection: 652d5f5056f49f02e8939695_test.blogs index: description_1 dup key: { description: "Rejoice for He lives! Glory!!!🙌🏾➕," } {"timestamp":"2023-10-24T13:44:44.001Z"}
 error: Error in editing a blog: E11000 duplicate key error collection: 652d5f5056f49f02e8939695_test.blogs index: description_1 dup key: { description: "Rejoice for He lives! Glory!!!🙌🏾➕," } {"timestamp":"2023-10-24T13:46:30.130Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "The manual for service" } {"timestamp":"2023-10-27T05:28:57.209Z"}

@@ -7,7 +7,8 @@ const winston = require("./logger");
 const blog = require("../models/blog");
 const { calculateReadingTime } = require("./time");
 
-blogRouter.get("/getALL", async (req, res) => {
+// Get all blogs
+blogRouter.get("/blogs", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
     const limit = 20; // Fixed to 20 blogs per page
@@ -42,6 +43,7 @@ blogRouter.get("/getALL", async (req, res) => {
   }
 });
 
+// Search for blogs
 blogRouter.get("/getfiltered", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
@@ -89,7 +91,8 @@ blogRouter.get("/getfiltered", async (req, res) => {
   }
 });
 
-blogRouter.get("/get/:id", async (req, res) => {
+//Get a particular blog
+blogRouter.get("/blogs/:id", async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id).populate(
       "author",
@@ -99,7 +102,7 @@ blogRouter.get("/get/:id", async (req, res) => {
       throw new Error("Blog not found");
     }
 
-    // The read_count increases by 1
+    // The read count increases by 1
     blog.read_count += 1;
     await blog.save();
 
@@ -110,7 +113,7 @@ blogRouter.get("/get/:id", async (req, res) => {
 });
 
 // Create a new blog (initially in draft state)
-blogRouter.post("/", verifyToken, async (req, res) => {
+blogRouter.post("/blogs", verifyToken, async (req, res) => {
   const { title, body, tags, state, description } = req.body;
   const author = req.user.id;
 
@@ -176,7 +179,7 @@ blogRouter.get("/myblogs", verifyToken, async (req, res) => {
 });
 
 // Publish a blog
-blogRouter.put("/publish/:id", verifyToken, async (req, res) => {
+blogRouter.put("/blogs/:id/publish", verifyToken, async (req, res) => {
   const blogId = req.params.id;
 
   try {
@@ -210,7 +213,7 @@ blogRouter.put("/publish/:id", verifyToken, async (req, res) => {
 });
 
 // Edit a blog
-blogRouter.put("/updateBlog/:id", verifyToken, async (req, res) => {
+blogRouter.patch("/blogs/edit/:id", verifyToken, async (req, res) => {
   const blogId = req.params.id;
 
   try {

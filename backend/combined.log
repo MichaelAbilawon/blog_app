@@ -63,3 +63,8 @@ error: Error in editing a blog: E11000 duplicate key error collection: 652d5f505
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King {"timestamp":"2023-10-24T13:53:00.967Z"}
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:27.647Z"}
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:52.325Z"}
+info: Blog created by mabilawon@gmail.com: The will of God {"timestamp":"2023-10-27T05:27:22.107Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "The manual for service" } {"timestamp":"2023-10-27T05:28:57.209Z"}
+info: Blog created by mabilawon@gmail.com: The will of God 2 {"timestamp":"2023-10-27T05:29:10.641Z"}
+info: Blog published by mabilawon@gmail.com: The will of God 2 {"timestamp":"2023-10-27T05:30:09.513Z"}
+info: Blog edited by mabilawon@gmail.com: This is the will of God {"timestamp":"2023-10-27T05:32:49.799Z"}

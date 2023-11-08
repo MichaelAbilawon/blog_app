@@ -4,7 +4,8 @@ const verifyToken = require("../middlewares/verifyToken");
 const User = require("../models/user");
 const userRouter = express.Router();
 
-userRouter.get("/find/:userId", async (req, res) => {
+//Get a particular user
+userRouter.get("/user/:userId", async (req, res) => {
   try {
     const user = await User.findById(req.params.userId);
     if (!user) {
@@ -17,7 +18,8 @@ userRouter.get("/find/:userId", async (req, res) => {
   }
 });
 
-userRouter.get("/findALL", async (req, res) => {
+//Get all users
+userRouter.get("/users", async (req, res) => {
   try {
     const users = await User.find(req.params.userId);
     if (!users) {
@@ -39,7 +41,8 @@ userRouter.get("/findALL", async (req, res) => {
   }
 });
 
-userRouter.put("/updateUser/:userId", verifyToken, async (req, res) => {
+//Edit a user details
+userRouter.put("/user/:userId/edit", verifyToken, async (req, res) => {
   if (req.params.userId === req.user.id) {
     try {
       if (req.body.password) {
@@ -61,7 +64,8 @@ userRouter.put("/updateUser/:userId", verifyToken, async (req, res) => {
   }
 });
 
-userRouter.delete("/deleteUser/:userId", verifyToken, async (req, res) => {
+//Delete a user
+userRouter.delete("/user/:userId/delete", verifyToken, async (req, res) => {
   if (req.params.userId === req.user.id) {
     try {
       await User.findByIdAndDelete(req.params.userId);
