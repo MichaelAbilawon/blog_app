@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://source.unsplash.com/1920x1080/?blogging");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: white;
+      }
+
+      h1 {
+        background-color: #0078d4;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+        font-size: 36px;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      header {
+        background-color: #0078d4;
+        padding: 20px 0;
+        min-height: 70px;
+        border-bottom: 3px solid #ff4500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #branding h1 {
+        margin: 0;
+        font-size: 36px;
+        color: white;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 10px;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      a {
+        text-decoration: none;
+        color: #0078d4;
+        font-weight: bold;
+      }
+
+      li:hover {
+        background-color: #0056b3;
+        color: white;
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container" id="branding">
+        <h1>BlogNest</h1>
+      </div>
+    </header>
+
+    <h1 class="text-center mt-4">
+      Welcome to Your Dashboard, <%= user.email %>
+    </h1>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <ul>
+            <li>
+              <a href="/blog/create" class="btn btn-primary btn-block"
+                >Create a Blog</a
+              >
+            </li>
+            <li>
+              <a href="/blog/all" class="btn btn-primary btn-block"
+                >View All Blogs</a
+              >
+            </li>
+            <li>
+              <a href="/blog/myblogs" class="btn btn-primary btn-block"
+                >View Your Blogs</a
+              >
+            </li>
+            <li>
+              <a href="/blog?status=pending" class="btn btn-primary btn-block"
+                >View Drafts</a
+              >
+            </li>
+            <li>
+              <a
+                href="/blogs?status=completed"
+                class="btn btn-primary btn-block"
+                >View Published Blogs</a
+              >
+            </li>
+            <li>
+              <a href="/auth/logout" class="btn btn-danger btn-block">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

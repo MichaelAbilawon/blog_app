@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header
+      class="bg-gradient"
+      style="
+        padding: 20px 0;
+        min-height: 70px;
+        border-bottom: 3px solid #ff4500;
+      "
+    >
+      <div class="container">
+        <div id="branding">
+          <h1 class="text-white" style="font-size: 36px">BlogNest</h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="container mt-4">
+      <h1 class="text-center" style="font-size: 24px; color: #333">
+        Create a New Blog
+      </h1>
+      <form
+        method="POST"
+        action="/blog/blogs"
+        class="bg-white border rounded p-3"
+      >
+        <!-- Title Input -->
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <!-- Description Input -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <!-- State Input -->
+        <div class="form-group">
+          <label for="state">State:</label>
+          <select id="state" name="state" class="form-control" required>
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+
+        <!-- Tags Input (Assuming tags are entered as a comma-separated list) -->
+        <div class="form-group">
+          <label for="tags">Tags:</label>
+          <input type="text" id="tags" name="tags" class="form-control" />
+        </div>
+
+        <!-- Blog Body Input -->
+        <div class="form-group">
+          <label for="body">Blog Content:</label>
+          <textarea
+            id="body"
+            name="body"
+            class="form-control"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block">
+          Create Blog
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

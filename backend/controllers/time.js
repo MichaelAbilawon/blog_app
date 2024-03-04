@@ -3,7 +3,8 @@
 function calculateReadingTime(body) {
   const averageSpeed = 200;
   const wordCount = body.split(/\s+/).length;
-  const readingTime = Math.ceil(wordCount / averageSpeed);
+  const calculatedTime = Math.ceil(wordCount / averageSpeed);
+  const readingTime = console.log(calculatedTime + "mins");
   return readingTime;
 }
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= blog.title %></title>
+  </head>
+  <body>
+    <h1><%= blog.title %></h1>
+    <p>Author: <%= blog.author.firstname %> <%= blog.author.lastname %></p>
+    <p>Published on: <%= blog.timestamp.toLocaleString() %></p>
+    <p>Read Count: <%= blog.read_count %></p>
+
+    <!-- Display the blog content -->
+    <div><%= blog.body %></div>
+
+    <!-- tags -->
+    <ul>
+      <% if (blog.tags && blog.tags.length > 0) { %> <%
+      blog.tags.forEach(function(tag) { %>
+      <li><%= tag %></li>
+      <% }); %> <% } else { %>
+      <li>No tags available.</li>
+      <% } %>
+    </ul>
+
+    <a href="/blogs">Back to Blog List</a>
+  </body>
+</html>

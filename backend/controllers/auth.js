@@ -1,20 +1,42 @@
 const User = require("../models/user");
+const Blog = require("../models/blog");
+const verifyToken = require("../middlewares/verifyToken");
+const logger = require("./logger");
 const express = require("express");
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const app = express();
 app.use(express.json()); // for parsing application/json
 app.use(cookieParser());
-
 require("dotenv").config();
 
 const { log } = require("winston");
-const winston = require("winston/lib/winston/config");
+const winston = require("./logger");
 const router = express.Router();
 
-//Define authentication routes
+router.get("/register", (req, res) => {
+  res.render("register");
+});
+
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+router.get("/dashboard", verifyToken, async (req, res) => {
+  // Fetch the user's blogs
+  try {
+    const userId = req.user.id;
+    const blogs = await Blog.find({ author: userId });
+    res.render("dashboard", { blogs: blogs, user: req.user });
+  } catch (error) {
+    // Handle any potential errors, e.g., database connection issues
+    console.error("Error fetching blogs:", error);
+    res.status(500).send("Error fetching blogs");
+  }
+});
+
+//Registration routes
 
 router.post("/register", async (req, res) => {
   //Handles user registeration
@@ -24,6 +46,10 @@ router.post("/register", async (req, res) => {
     if (isExisting) {
       return res.status(400).json({ error: "Email has already been used." });
     }
+    if (!req.body.password) {
+      return res.status(400).json({ error: "Password is required" });
+    }
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = new User({
       firstname: req.body.firstname,
@@ -40,7 +66,8 @@ router.post("/register", async (req, res) => {
         expiresIn: "1h",
       }
     );
-    res.status(201).json({ message: "New user created" });
+    // res.status(201).json({ message: "New user created" });
+    res.render("successfulRegistration", { user: newUser });
   } catch (error) {
     winston.error(`Error in register: ${error.message}`);
     res.status(500).json({ error: "Registration failed" });
@@ -74,7 +101,7 @@ router.post("/login", async (req, res) => {
         );
         // Save the token to a cookie and send a response
         res.cookie("token", token, { httpOnly: true });
-        res.status(200).json({ message: "Logged in successfully" });
+        res.render("dashboard", { user: user });
       }
     }
   } catch (error) {
@@ -82,6 +109,13 @@ router.post("/login", async (req, res) => {
 
     res.status(500).json({ error: "Server error" });
   }
+});
+
+// Logout route
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  // Redirect the user to the login page
+  res.redirect("/auth/login");
 });
 
 module.exports = router;

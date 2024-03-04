@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Blogs</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        background-color: #0078d4;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 36px;
+        margin: 0;
+      }
+
+      .card {
+        background-color: #fff;
+        margin: 10px;
+        border: 1px solid #d1d1d1;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      strong {
+        color: #0078d4;
+      }
+
+      a {
+        display: block;
+        background-color: #0078d4;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 20px auto;
+        width: 200px;
+      }
+
+      #success-message {
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+
+      a:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All Blogs</h1>
+    <div class="container">
+      <div class="row">
+        <% blogs.forEach(blog => { %>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>Title:</strong> <%= blog.title %>
+              </h5>
+              <p class="card-text">
+                <strong>Description:</strong> <%= blog.description %>
+              </p>
+              <p class="card-text">
+                <strong>Author:</strong> <%= blog.author %>
+              </p>
+              <p class="card-text"><strong>State:</strong> <%= blog.state %></p>
+              <p class="card-text">
+                <strong>Read Count:</strong> <%= blog.read_count %>
+              </p>
+              <p class="card-text">
+                <strong>Read time:</strong> <%= blog.reading_time %>
+              </p>
+              <a href="/blog/view/<%= blog._id %>">View blog</a>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <!-- Pagination Links -->
+    <div class="pagination">
+      <% if (currentPage > 1) { %>
+      <a href="/blog/all?page=<%= currentPage - 1 %>">Previous</a>
+      <% } %> <% if (currentPage < totalPages) { %>
+      <a href="/blog/all?page=<%= currentPage + 1 %>">Next</a>
+      <% } %>
+    </div>
+    <a href="/auth/dashboard" class="btn btn-primary">Back to Dashboard</a>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

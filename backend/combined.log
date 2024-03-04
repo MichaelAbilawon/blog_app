@@ -63,8 +63,23 @@ error: Error in editing a blog: E11000 duplicate key error collection: 652d5f505
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King {"timestamp":"2023-10-24T13:53:00.967Z"}
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:27.647Z"}
 info: Blog edited by mabilawon@gmail.com: Jesus, the Risen King. {"timestamp":"2023-10-24T13:53:52.325Z"}
+<<<<<<< HEAD
 info: Blog created by mabilawon@gmail.com: The will of God {"timestamp":"2023-10-27T05:27:22.107Z"}
 error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "The manual for service" } {"timestamp":"2023-10-27T05:28:57.209Z"}
 info: Blog created by mabilawon@gmail.com: The will of God 2 {"timestamp":"2023-10-27T05:29:10.641Z"}
 info: Blog published by mabilawon@gmail.com: The will of God 2 {"timestamp":"2023-10-27T05:30:09.513Z"}
 info: Blog edited by mabilawon@gmail.com: This is the will of God {"timestamp":"2023-10-27T05:32:49.799Z"}
+=======
+error: Error in login: existingUser is not defined {"timestamp":"2023-10-30T07:35:02.419Z"}
+error: Error in register: User validation failed: firstname: Path `firstname` is required., lastname: Path `lastname` is required. {"timestamp":"2023-10-30T07:36:21.367Z"}
+error: Error in login: existingUser is not defined {"timestamp":"2023-10-30T07:43:15.557Z"}
+info: Blog created by meekman@gmail.com: Heavenly Things. {"timestamp":"2023-10-30T18:14:28.161Z"}
+error: Error in creating a blog: E11000 duplicate key error collection: test.blogs index: description_1 dup key: { description: "Let's talk about heavenly things." } {"timestamp":"2023-10-30T18:15:21.279Z"}
+error: Error in creating a blog: Blog validation failed: slug: Path `slug` is required. {"timestamp":"2023-10-31T15:47:51.388Z"}
+info: Blog created by meekman@gmail.com: One Thing🙌 {"timestamp":"2023-10-31T16:26:00.590Z"}
+info: Blog created by meekman@gmail.com: My lifetime {"timestamp":"2023-10-31T16:30:36.389Z"}
+error: Error in register: data and salt arguments required {"timestamp":"2023-10-31T17:58:08.154Z"}
+error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:45.133Z"}
+error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:55.073Z"}
+error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:55.330Z"}
+>>>>>>> 83b177738c0abd42e6d1e5f03976db62350cfb83

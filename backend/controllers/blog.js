@@ -6,9 +6,9 @@ const verifyToken = require("../middlewares/verifyToken");
 const winston = require("./logger");
 const blog = require("../models/blog");
 const { calculateReadingTime } = require("./time");
+const generateSlug = require("./slug");
 
-// Get all blogs
-blogRouter.get("/blogs", async (req, res) => {
+blogRouter.get("/getALL", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
     const limit = 20; // Fixed to 20 blogs per page
@@ -29,13 +29,11 @@ blogRouter.get("/blogs", async (req, res) => {
       throw new Error("No Data Found");
     }
 
-    return res.status(200).json({
-      success: true,
-      count: data.length,
-      totalPages,
+    res.render("allblogs", {
+      blogs: data,
+      totalBlogs: totalBlogs,
       currentPage: page,
-      message: "Data fetched successfully!",
-      data,
+      totalPages: totalPages,
     });
   } catch (err) {
     console.log(err);
@@ -43,7 +41,6 @@ blogRouter.get("/blogs", async (req, res) => {
   }
 });
 
-// Search for blogs
 blogRouter.get("/getfiltered", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
@@ -106,12 +103,18 @@ blogRouter.get("/blogs/:id", async (req, res) => {
     blog.read_count += 1;
     await blog.save();
 
-    res.status(200).json(blog);
+    res.render("singleblog", { blog });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
+//Route to create a blog
+blogRouter.get("/create", verifyToken, (req, res) => {
+  res.render("createblog", {
+    user: req.user,
+  });
+});
 // Create a new blog (initially in draft state)
 blogRouter.post("/blogs", verifyToken, async (req, res) => {
   const { title, body, tags, state, description } = req.body;
@@ -134,11 +137,12 @@ blogRouter.post("/blogs", verifyToken, async (req, res) => {
     const newBlog = new Blog({
       title,
       description,
+      slug: generateSlug(title),
       state: "draft", // Initially in draft state
       body,
       tags: tags || [],
       author,
-      reading_time: readingTime, //Reading time
+      reading_time: `${readingTime}mins`, //Reading time
       read_count: 0, // Initialize read_count
     });
 
@@ -148,7 +152,9 @@ blogRouter.post("/blogs", verifyToken, async (req, res) => {
     // Log the creation of the blog
     winston.info(`Blog created by ${req.user.email}: ${title}`);
 
-    return res.status(201).json(blog);
+    return res.render("blogcreated", {
+      blog,
+    });
   } catch (error) {
     winston.error(`Error in creating a blog: ${error.message}`);
     return res.status(500).json({ error: "Server error" });
@@ -157,6 +163,7 @@ blogRouter.post("/blogs", verifyToken, async (req, res) => {
 
 // Get a list of the user's blogs
 blogRouter.get("/myblogs", verifyToken, async (req, res) => {
+  const isBlogDeleted = req.query.deleted === true;
   const userId = req.user.id; //this is to extract the user ID from the token
   const { page = 1, perPage = 20, state } = req.query;
 
@@ -170,7 +177,7 @@ blogRouter.get("/myblogs", verifyToken, async (req, res) => {
         .limit(perPage),
       Blog.countDocuments(query), //This is to count the total number of blogs
     ]);
-    res.status(200).json({ total, blogs });
+    res.render("allmyblogs", { blogs: blogs, isBlogDeleted }, total);
   } catch (error) {
     res
       .status(500)
