@@ -8,6 +8,10 @@ const blog = require("../models/blog");
 const { calculateReadingTime } = require("./time");
 const generateSlug = require("./slug");
 
+blogRouter.get("getAll", (req, res) => {
+  res.render;
+  ("allmyblogs");
+});
 blogRouter.get("/getALL", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1; // Default to page 1
@@ -89,7 +93,7 @@ blogRouter.get("/getfiltered", async (req, res) => {
 });
 
 //Get a particular blog
-blogRouter.get("/blogs/:id", async (req, res) => {
+blogRouter.get("/:id", async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id).populate(
       "author",

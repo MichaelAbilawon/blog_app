@@ -89,7 +89,7 @@
               <p class="card-text">
                 <strong>Read time:</strong> <%= blog.reading_time %>
               </p>
-              <a href="/blog/view/<%= blog._id %>">View blog</a>
+              <a href="/blog/<%= blog._id %>">View blog</a>
             </div>
           </div>
         </div>
@@ -99,9 +99,9 @@
     <!-- Pagination Links -->
     <div class="pagination">
       <% if (currentPage > 1) { %>
-      <a href="/blog/all?page=<%= currentPage - 1 %>">Previous</a>
+      <a href="/blog/getAll?page=<%= currentPage - 1 %>">Previous</a>
       <% } %> <% if (currentPage < totalPages) { %>
-      <a href="/blog/all?page=<%= currentPage + 1 %>">Next</a>
+      <a href="/blog/getAll?page=<%= currentPage + 1 %>">Next</a>
       <% } %>
     </div>
     <a href="/auth/dashboard" class="btn btn-primary">Back to Dashboard</a>

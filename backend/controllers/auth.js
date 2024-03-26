@@ -66,7 +66,7 @@ router.post("/register", async (req, res) => {
         expiresIn: "1h",
       }
     );
-    // res.status(201).json({ message: "New user created" });
+    res.status(201).json({ message: "New user created" });
     res.render("successfulRegistration", { user: newUser });
   } catch (error) {
     winston.error(`Error in register: ${error.message}`);

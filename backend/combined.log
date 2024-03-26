@@ -83,3 +83,7 @@ error: Error in register: Operation `users.findOne()` buffering timed out after 
 error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:55.073Z"}
 error: Error in register: Operation `users.findOne()` buffering timed out after 10000ms {"timestamp":"2023-11-01T07:07:55.330Z"}
 >>>>>>> 83b177738c0abd42e6d1e5f03976db62350cfb83
+error: Error in creating a blog: Blog validation failed: reading_time: Cast to Number failed for value "undefinedmins" (type string) at path "reading_time", description: Path `description` (`234`) is shorter than the minimum allowed length (6). {"timestamp":"2024-03-06T13:22:05.116Z"}
+error: Error in creating a blog: Blog validation failed: reading_time: Cast to Number failed for value "undefinedmins" (type string) at path "reading_time", description: Path `description` (`234`) is shorter than the minimum allowed length (6). {"timestamp":"2024-03-06T13:22:30.802Z"}
+error: Error in creating a blog: Blog validation failed: reading_time: Cast to Number failed for value "undefinedmins" (type string) at path "reading_time" {"timestamp":"2024-03-06T13:22:45.751Z"}
+error: Error in creating a blog: Blog validation failed: reading_time: Cast to Number failed for value "undefinedmins" (type string) at path "reading_time" {"timestamp":"2024-03-06T13:23:29.620Z"}
